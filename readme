@@ -1,0 +1,3 @@
+
+frontend:-- ReactJS, TailwindCSS, ReactRouter, ReactIcons
+backend:-- expressJS(type:"module"), mongodb, mongoose, dotenv, nodejs, regex(for form validation), validator-library(for form valaidation)
