@@ -1,5 +1,5 @@
 import JWT from "jsonwebtoken";
-import 'dotenv/config';
+import "dotenv/config";
 
 export const sendTokenResponse = (user, res, statusCode, message) => {
   const token = JWT.sign(
@@ -10,14 +10,19 @@ export const sendTokenResponse = (user, res, statusCode, message) => {
 
   console.log(token); // ! production
 
-  return res.status(statusCode).json({
-    success: true,
-    message,
-    token,
-    user: {
-      id: user._id,
-      email: user.email,
-      fullname: user.fullname,
-    },
-  });
+  return res
+    .cookie("token", token, {
+      httpOnly: true,
+    })
+    .status(statusCode)
+    .json({
+      success: true,
+      message,
+      token,
+      user: {
+        id: user._id,
+        email: user.email,
+        fullname: user.fullname,
+      },
+    });
 };

@@ -61,7 +61,7 @@ export const signup = async (req, res) => {
 
   const { fullname, email, password } = req.body;
 
-  console.log(fullname, email); // ! produciton
+  console.log(fullname, email, password); // ! produciton
 
   if (!fullname) {
     return res

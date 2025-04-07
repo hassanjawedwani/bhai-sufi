@@ -1,3 +1,10 @@
+frontend:
+// ReactJS, TailwindCSS, ReactRouter, ReactIcons
 
-frontend:-- ReactJS, TailwindCSS, ReactRouter, ReactIcons
-backend:-- expressJS(type:"module"), mongodb(atlas), mongoose, dotenv, nodejs, validator(for form valaidation), jwt, bcrypt, 
+// backend:
+// expressJS(type:"module"), mongodb(atlas), mongoose, dotenv, nodejs, validator(for serverside form valaidation), jwt, bcrypt, React-Redux, Redux-toolkit, redux-persist(to store redux store in local storage),)
+
+
+// for clear local storage at logou
+// import { persistStore } from "redux-persist";
+// persistor.purge(); // clears localStorage
