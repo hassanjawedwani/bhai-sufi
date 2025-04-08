@@ -63,7 +63,7 @@ export default function Signup() {
       }
 
       console.log("data: ", data); // ! production
-      dispatch(authenticationSuccess(data.user));
+      dispatch(authenticationSuccess({ currentUser : data.user, message: data.message }));
       setFormData(initialForm);
       navigate("/");
     } catch (err) {

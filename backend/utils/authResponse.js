@@ -18,7 +18,6 @@ export const sendTokenResponse = (user, res, statusCode, message) => {
     .json({
       success: true,
       message,
-      token,
       user: {
         id: user._id,
         email: user.email,

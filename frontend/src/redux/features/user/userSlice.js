@@ -4,6 +4,7 @@ const initialState = {
   currentUser: null,
   error: null,
   loading: false,
+  message: null,
 }
 
 export const userSlice = createSlice({
@@ -16,7 +17,8 @@ export const userSlice = createSlice({
     authenticationSuccess: (state, action) => {
       state.loading = false;
       state.error = null;
-      state.currentUser = action.payload;
+      state.currentUser = action.payload.currentUser;
+      state.message = action.payload.message
     },
     authenticationFailure: (state, action) => {
       state.loading = false;

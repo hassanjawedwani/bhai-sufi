@@ -1,8 +1,8 @@
-frontend:
+// frontend:
 // ReactJS, TailwindCSS, ReactRouter, ReactIcons
 
 // backend:
-// expressJS(type:"module"), mongodb(atlas), mongoose, dotenv, nodejs, validator(for serverside form valaidation), jwt, bcrypt, React-Redux, Redux-toolkit, redux-persist(to store redux store in local storage),)
+// expressJS(type:"module"), mongodb(atlas), mongoose, dotenv, nodejs, validator(for serverside form valaidation), jwt, bcrypt, React-Redux, Redux-toolkit, redux-persist(to store redux store in local storage), axios(for login route)
 
 
 // for clear local storage at logou
