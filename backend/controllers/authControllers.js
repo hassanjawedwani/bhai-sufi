@@ -131,6 +131,17 @@ export const signup = async (req, res) => {
   }
 };
 
+export const logout = async (req, res, next) => {
+  console.log("logout route");
+  res.cookie("token", "", {
+    httpOnly: true,
+    expires: new Date(0)
+  }).status(200).json({
+    success: true,
+    message: "User logout successfully"
+  })
+}
+
 export const me = async (req, res) => {
   console.log("me route");
   const token = req.cookies.token;

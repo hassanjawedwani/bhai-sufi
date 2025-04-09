@@ -29,13 +29,13 @@ export default function Home() {
           {user.message}
         </h1>
       )}
-      <h1 className="text-2xl text-center">Home Page</h1>
+      
       <br />
       {/* {currentUser &&  */}
-        <h2 className="text-center text-2xl  mt-5">
+        <h2 className="text-center text-3xl  mt-5">
           Hello {" "}
-         <span className="font-bold italic bg-yellow-600">
-           {currentUser ? currentUser.fullname : "unlogin person"}
+         <span className="font-bold italic">
+           {currentUser ? currentUser.fullname : "unlogin buddy!"}
           </span>
           </h2>
       {/* } */}

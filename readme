@@ -8,6 +8,7 @@
 // ReactRouter(for creating routes for pages),
 // TailwindCSS(for styling),
 // ReactIcons (for inserting icons);
+// Lucide-react (for SVGs)
 
 // Backend Technologies:
 // Mongoose and Mongodb(atlas for storing db online),
@@ -39,3 +40,4 @@
 // future work
 // remove email id from token 
 // remove console statement from code
+// signup, logout and login route make secure

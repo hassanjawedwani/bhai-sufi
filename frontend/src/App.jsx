@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   authenticationSuccess,
 } from "./redux/features/user/userSlice";
+import Navbar from "./components/Navbar";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -39,6 +40,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
