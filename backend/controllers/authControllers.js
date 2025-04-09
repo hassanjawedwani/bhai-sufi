@@ -38,7 +38,6 @@ export const login = async (req, res) => {
     console.log(user);
 
     const isMatch = await user.comparePassword(password);
-
     if (!isMatch) {
       return res
         .status(401)
@@ -47,12 +46,10 @@ export const login = async (req, res) => {
       sendTokenResponse(user, res, 200, "User Login Success");
     }
   } catch (err) {
-    return res
-      .status(500)
-      .json({
-        success: false,
-        error: "Something went wrong, please try again later",
-      });
+    return res.status(500).json({
+      success: false,
+      error: "Something went wrong, please try again later",
+    });
   }
 };
 
@@ -109,9 +106,7 @@ export const signup = async (req, res) => {
 
     const newUserWithoutPass = await User.findById(newUser._id);
 
-    
     sendTokenResponse(newUserWithoutPass, res, 201, "Signup successful");
-
   } catch (err) {
     console.log("Database Error: ", err); // ! production
 
@@ -133,5 +128,39 @@ export const signup = async (req, res) => {
       success: false,
       error: "Something went wrong with the database operation",
     });
+  }
+};
+
+export const me = async (req, res) => {
+  console.log("me route");
+  const token = req.cookies.token;
+  if (!token) {
+    console.log(
+      "cookie not found, user is not login, currentUser can't be initialized"
+    ); // ! production
+    res.status(401).json({
+      success: false,
+      error:
+        "cookie not found, user is not login, currentUser can't be initialized",
+    });
+  } else {
+    console.log(
+      "user is login, but it is the time to check whether token is valid, if valid we will fetch data inside token" // ! production
+    );
+    try {
+      const decodedTokenData = JWT.verify(token, process.env.JWT_PRIVATE_KEY);
+      console.log("Decoded token data : ", decodedTokenData);               // ! production
+      const userId = decodedTokenData.userId;
+
+      const user = await User.findById(userId);
+      res.status(200).json(user);
+      
+    } catch (err) {
+      console.log( 
+        "cookie found, but either token is expired, or some error occured: ",  // ! production
+        err.message
+      ); 
+      res.status(401).json({success: false, error: err.message || "Please login first before continue"})
+    }
   }
 };

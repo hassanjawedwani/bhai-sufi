@@ -1,10 +1,41 @@
-// frontend:
-// ReactJS, TailwindCSS, ReactRouter, ReactIcons
-
-// backend:
-// expressJS(type:"module"), mongodb(atlas), mongoose, dotenv, nodejs, validator(for serverside form valaidation), jwt, bcrypt, React-Redux, Redux-toolkit, redux-persist(to store redux store in local storage), axios(for login route)
+// User management system:
+// /signup : for creating new user
+// /login : for login existing users (they will remain login for 1h);
 
 
-// for clear local storage at logou
-// import { persistStore } from "redux-persist";
-// persistor.purge(); // clears localStorage
+// Frontend Technologies:
+// Reactjs(for creating single page applications),
+// ReactRouter(for creating routes for pages),
+// TailwindCSS(for styling),
+// ReactIcons (for inserting icons);
+
+// Backend Technologies:
+// Mongoose and Mongodb(atlas for storing db online),
+// ExpressJS(type:"module", for making apis),
+// Nodejs & npm (for packages),
+// validator library(for serverside form valaidation),
+// jwt & bcrypt(for token creation and verification)
+// cookie-parser (for cookie parsing)
+// dotenv (for accessing env files)
+// Redux-toolkit & React-Redux (for storing currentUser info, loading, error, message states)
+// fetch(for signup route)
+// axios(for other routes),
+
+
+// confusions b/w two things:
+// Question 1)
+// I have stored Token in cookie and set token expireIN one hour and cookie maxAge is also 1h , user will be unauth after one hour, he had to login again)), where should i store jwt token, inside (local storage, inside session storage, inside redux store or inside a cookie)?
+
+// Question 2)
+// I have created a useEffect function in app.js which take token from cookie and initalized the redux-store data, but their is another option avaible which is redux-persist library , which should i use?
+
+
+// Question 3)
+// I have used fetch and axios but felt axios is better, which i should used consistently in upcomming projects?
+
+
+
+
+// future work
+// remove email id from token 
+// remove console statement from code

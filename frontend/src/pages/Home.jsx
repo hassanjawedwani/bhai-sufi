@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { authenticationSuccess } from "../redux/features/user/userSlice";
+import axios from "axios";
 
 export default function Home() {
   const user = useSelector((state) => state.user);
@@ -23,18 +24,22 @@ export default function Home() {
 
   return (
     <div>
-      
       {user.message && (
         <h1 className={`text-center text-2xl bg-green-600 mt-5`}>
-          {user.message} <br />
-          Hello{" "}
-          <span className="font-bold italic">
-            {currentUser && currentUser.fullname}
-          </span>
+          {user.message}
         </h1>
       )}
       <h1 className="text-2xl text-center">Home Page</h1>
-
+      <br />
+      {/* {currentUser &&  */}
+        <h2 className="text-center text-2xl  mt-5">
+          Hello {" "}
+         <span className="font-bold italic bg-yellow-600">
+           {currentUser ? currentUser.fullname : "unlogin person"}
+          </span>
+          </h2>
+      {/* } */}
+     
     </div>
   );
 }

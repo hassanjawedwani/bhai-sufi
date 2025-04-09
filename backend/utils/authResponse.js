@@ -5,7 +5,7 @@ export const sendTokenResponse = (user, res, statusCode, message) => {
   const token = JWT.sign(
     { userId: user._id, email: user.email },
     process.env.JWT_PRIVATE_KEY,
-    { expiresIn: process.env.JWT_EXPIRES_IN }
+    { expiresIn: "1h" }
   );
 
   console.log(token); // ! production
@@ -13,6 +13,7 @@ export const sendTokenResponse = (user, res, statusCode, message) => {
   return res
     .cookie("token", token, {
       httpOnly: true,
+      maxAge: 60 * 60 * 1000,  
     })
     .status(statusCode)
     .json({
